@@ -23,7 +23,6 @@ body {
   background: white;
   border-radius: 40px;
   padding: 30px;
-  max-width: 1400px;
   width: 100%;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }

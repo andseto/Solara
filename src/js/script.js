@@ -3,16 +3,21 @@ function updateClock() {
     const now = new Date();
     
     // Format time
-    const hours = String(now.getHours()).padStart(2, '0');
+    let hours24 = now.getHours();
+    let hours12 = hours24 % 12;
+    if (hours12 == 0) hours12 = 12;
+    const ampm = hours24 >= 12 ? 'P.M' : 'A.M';
+
+    const hours = String(hours12).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
     
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
     
     // Format date
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const dateString = now.toLocaleDateString('en-US', options);
-    
+
     document.getElementById('date').textContent = dateString;
 }
 
