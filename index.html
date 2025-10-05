@@ -10,48 +10,58 @@
     <div class="dashboard">
         <header>
             <h1>Good Morning</h1>
-            <p class="subtitle">Here's what's happening today</p>
+            <p class="subtitle">Here's what's happening today - Drag to rearrange!</p>
         </header>
 
         <div class="grid">
             <!-- Time & Date Card -->
-            <div class="card large">
-                <div id="clock"></div>
-                <div id="date"></div>
+            <div class="card-item">
+                <div class="card-content large">
+                    <div id="clock"></div>
+                    <div id="date"></div>
+                </div>
             </div>
 
             <!-- Weather Card -->
-            <div class="card">
-                <h2>Weather</h2>
-                <div id="weather">
-                    <div class="weather-main">
-                        <span class="temperature">--°</span>
-                        <span class="condition">Loading...</span>
-                    </div>
-                    <div class="weather-details">
-                        <span>High: --° Low: --°</span>
+            <div class="card-item">
+                <div class="card-content">
+                    <h2>Weather</h2>
+                    <div id="weather">
+                        <div class="weather-main">
+                            <span class="temperature">--°</span>
+                            <span class="condition">Loading...</span>
+                        </div>
+                        <div class="weather-details">
+                            <span>High: --° Low: --°</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Calendar Card -->
-            <div class="card">
-                <h2>Today's Events</h2>
-                <div id="calendar">
-                    <p class="placeholder">No events scheduled</p>
+            <div class="card-item">
+                <div class="card-content">
+                    <h2>Today's Events</h2>
+                    <div id="calendar">
+                        <p class="placeholder">No events scheduled</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Tasks Card -->
-            <div class="card">
-                <h2>Tasks</h2>
-                <div id="tasks">
-                    <p class="placeholder">No tasks yet</p>
+            <div class="card-item">
+                <div class="card-content">
+                    <h2>Tasks</h2>
+                    <div id="tasks">
+                        <p class="placeholder">No tasks yet</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Muuri library -->
+    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
     <script src="src/js/script.js"></script>
 </body>
 </html>

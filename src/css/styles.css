@@ -22,7 +22,7 @@ body {
 .dashboard {
   background: white;
   border-radius: 40px;
-  padding: 40px;
+  padding: 30px;
   max-width: 1400px;
   width: 100%;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
@@ -42,13 +42,32 @@ header .subtitle {
   margin-bottom: 30px;
 }
 
+/* Muuri grid styles */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  position: relative;
 }
 
-.card {
+.card-item {
+  position: absolute;
+  width: calc(50% - 10px);
+  margin: 0;
+  z-index: 1;
+}
+
+.card-item.muuri-item-dragging {
+  z-index: 3;
+  cursor: move;
+}
+
+.card-item.muuri-item-releasing {
+  z-index: 2;
+}
+
+.card-item.muuri-item-hidden {
+  z-index: 0;
+}
+
+.card-content {
   background: radial-gradient(farthest-side at top left, #f4faff, transparent),
               radial-gradient(farthest-side at top right, #f4e7fc, transparent),
               radial-gradient(farthest-side at bottom left, #fffbf5, transparent),
@@ -56,17 +75,27 @@ header .subtitle {
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: grab;
+  transition: box-shadow 0.2s ease;
+  height: 100%;
 }
 
-.card.large {
-  grid-column: span 2;
+.card-content:active {
+  cursor: grabbing;
+}
+
+.card-item.muuri-item-dragging .card-content {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-content.large {
   background: radial-gradient(farthest-side at top left, #c4e2fa, transparent),
               radial-gradient(farthest-side at top right, #b457d2, transparent),
               radial-gradient(farthest-side at bottom left, #f19a9e, transparent),
               radial-gradient(farthest-corner at bottom right, #f29b9e, transparent);
 }
 
-.card h2 {
+.card-content h2 {
   font-size: 18px;
   font-weight: 500;
   color: #000;
@@ -118,4 +147,11 @@ header .subtitle {
   font-weight: 300;
   color: #cecece;
   font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .card-item {
+    width: 100%;
+  }
 }
