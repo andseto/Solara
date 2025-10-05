@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(farthest-side at top left, #ddedfc, transparent),
+              radial-gradient(farthest-side at top right, #e3c2f2, transparent),
+              radial-gradient(farthest-side at bottom left, #fffbf5, transparent),
+              radial-gradient(farthest-corner at bottom right, #fbcdcd, transparent);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.dashboard {
+  background: white;
+  border-radius: 40px;
+  padding: 40px;
+  max-width: 1400px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 36px;
+  font-weight: 300;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+header .subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  color: #9b9a9f;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: radial-gradient(farthest-side at top left, #f4faff, transparent),
+              radial-gradient(farthest-side at top right, #f4e7fc, transparent),
+              radial-gradient(farthest-side at bottom left, #fffbf5, transparent),
+              radial-gradient(farthest-corner at bottom right, #fef0f1, transparent);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card.large {
+  grid-column: span 2;
+  background: radial-gradient(farthest-side at top left, #c4e2fa, transparent),
+              radial-gradient(farthest-side at top right, #b457d2, transparent),
+              radial-gradient(farthest-side at bottom left, #f19a9e, transparent),
+              radial-gradient(farthest-corner at bottom right, #f29b9e, transparent);
+}
+
+.card h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+#clock {
+  font-size: 72px;
+  font-weight: 200;
+  color: white;
+  text-align: center;
+}
+
+#date {
+  font-size: 24px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.temperature {
+  font-size: 48px;
+  font-weight: 300;
+  color: #000;
+}
+
+.condition {
+  font-size: 18px;
+  font-weight: 400;
+  color: #666;
+}
+
+.weather-details {
+  font-size: 14px;
+  font-weight: 300;
+  color: #999;
+}
+
+.placeholder {
+  font-size: 14px;
+  font-weight: 300;
+  color: #cecece;
+  font-style: italic;
+}

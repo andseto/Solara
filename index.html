@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solara Dashboard</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Good Morning</h1>
+            <p class="subtitle">Here's what's happening today</p>
+        </header>
+
+        <div class="grid">
+            <!-- Time & Date Card -->
+            <div class="card large">
+                <div id="clock"></div>
+                <div id="date"></div>
+            </div>
+
+            <!-- Weather Card -->
+            <div class="card">
+                <h2>Weather</h2>
+                <div id="weather">
+                    <div class="weather-main">
+                        <span class="temperature">--°</span>
+                        <span class="condition">Loading...</span>
+                    </div>
+                    <div class="weather-details">
+                        <span>High: --° Low: --°</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Card -->
+            <div class="card">
+                <h2>Today's Events</h2>
+                <div id="calendar">
+                    <p class="placeholder">No events scheduled</p>
+                </div>
+            </div>
+
+            <!-- Tasks Card -->
+            <div class="card">
+                <h2>Tasks</h2>
+                <div id="tasks">
+                    <p class="placeholder">No tasks yet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>
