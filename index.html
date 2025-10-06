@@ -14,18 +14,18 @@
         </header>
 
         <div class="grid">
-            <!-- Time & Date Card -->
-            <div class="card-item">
+            <!-- Time & Date Card - Large (2 columns wide) -->
+            <div class="card-item large-card">
                 <div class="card-content large">
                     <div id="clock"></div>
                     <div id="date"></div>
                 </div>
             </div>
 
-            <!-- Weather Card -->
+            <!-- Weather Card - Small (1 column) -->
             <div class="card-item">
                 <div class="card-content">
-                    <h2>Weather</h2>
+                    <h2>Weather - Glendale, AZ</h2>
                     <div id="weather">
                         <div class="weather-main">
                             <span class="temperature">--°</span>
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <!-- Calendar Card -->
+            <!-- Calendar Card - Small (1 column) -->
             <div class="card-item">
                 <div class="card-content">
                     <h2>Today's Events</h2>
@@ -47,21 +47,13 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Tasks Card -->
-            <div class="card-item">
-                <div class="card-content">
-                    <h2>Tasks</h2>
-                    <div id="tasks">
-                        <p class="placeholder">No tasks yet</p>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
 
     <!-- Muuri library -->
     <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
+    <!-- Config file -->
+    <script src="config/config.js"></script>
+    <!-- Main script -->
     <script src="src/js/script.js"></script>
 </body>
 </html>
