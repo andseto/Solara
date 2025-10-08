@@ -156,6 +156,9 @@ function initializeGrid() {
     loadLayout();
 }
 
+const el = document.getElementById('todays-events-item');
+if (window.grid && el) window.grid.add(el);
+
 // Save the current layout to localStorage
 function saveLayout() {
     const layout = grid.getItems().map(item => {

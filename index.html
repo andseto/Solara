@@ -47,6 +47,24 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Today's Events (Google Calendar) -->
+            <div class="card-item" id="todays-events-item">
+            <div class="card-content">
+                <h2>Today’s Events</h2>
+                <div id="todays-controls" style="display:flex; gap:8px; margin-bottom:10px;">
+                <button id="todays-signin">Sign in</button>
+                <button id="todays-signout" disabled>Sign out</button>
+                <button id="todays-refresh" disabled title="Refresh">↻</button>
+                </div>
+                <div id="todays-body">
+                <p class="placeholder">Connect your Google account to see today’s events.</p>
+                </div>
+                <div style="margin-top:8px;">
+                <small id="todays-status" class="placeholder">Not signed in</small>
+                </div>
+            </div>
+            </div>
         </div>
 
     <!-- Muuri library -->
@@ -55,5 +73,10 @@
     <script src="config/config.js"></script>
     <!-- Main script -->
     <script src="src/js/script.js"></script>
+    <!-- Load once per page (near end of <body>) -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js" async defer></script>
+    <!-- Widget code -->
+    <script src="widgets/todaysEvents.js"></script>
 </body>
 </html>
