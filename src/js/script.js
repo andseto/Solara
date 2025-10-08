@@ -57,7 +57,14 @@ function updateWeatherDisplay(data) {
     document.querySelector('.weather-details span').textContent = `High: ${high}° Low: ${low}°`;
 }
 
+// Update weather location from config
+function updateWeatherLocation() {
+    const locationText = `${CONFIG.CITY}, ${CONFIG.STATE}`;
+    document.getElementById('weather-location').textContent = locationText;
+}
+
 // Fetch weather on load and every 10 minutes
+updateWeatherLocation();
 fetchWeather();
 setInterval(fetchWeather, 600000); // 600000ms = 10 minutes
 
