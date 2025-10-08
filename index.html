@@ -1,82 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solara Dashboard</title>
-    <link rel="stylesheet" href="src/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solara Dashboard</title>
+  <link rel="stylesheet" href="src/css/styles.css" />
 </head>
+
 <body>
-    <div class="dashboard">
-        <header>
-            <h1>Good Morning</h1>
-            <p class="subtitle">Here's what's happening today - Drag to rearrange!</p>
-        </header>
+  <div class="dashboard">
+    <header>
+      <h1>Good Morning</h1>
+      <p class="subtitle">Here's what's happening today - Drag to rearrange!</p>
+    </header>
 
-        <div class="grid">
-            <!-- Time & Date Card - Large (2 columns wide) -->
-            <div class="card-item large-card">
-                <div class="card-content large">
-                    <div id="clock"></div>
-                    <div id="date"></div>
-                </div>
-            </div>
-
-            <!-- Weather Card - Small (1 column) -->
-            <div class="card-item">
-                <div class="card-content">
-                    <h2 id="weather-location"></h2>
-                    <div id="weather">
-                        <div class="weather-main">
-                            <span class="temperature">--°</span>
-                            <span class="condition">Loading...</span>
-                        </div>
-                        <div class="weather-details">
-                            <span>High: --° Low: --°</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Calendar Card - Small (1 column) -->
-            <div class="card-item">
-                <div class="card-content">
-                    <h2>Today's Events</h2>
-                    <div id="calendar">
-                        <p class="placeholder">No events scheduled</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Today's Events (Google Calendar) -->
-            <div class="card-item" id="todays-events-item">
-            <div class="card-content">
-                <h2>Today’s Events</h2>
-                <div id="todays-controls" style="display:flex; gap:8px; margin-bottom:10px;">
-                <button id="todays-signin">Sign in</button>
-                <button id="todays-signout" disabled>Sign out</button>
-                <button id="todays-refresh" disabled title="Refresh">↻</button>
-                </div>
-                <div id="todays-body">
-                <p class="placeholder">Connect your Google account to see today’s events.</p>
-                </div>
-                <div style="margin-top:8px;">
-                <small id="todays-status" class="placeholder">Not signed in</small>
-                </div>
-            </div>
-            </div>
+    <div class="grid">
+      <!-- Time & Date Card -->
+      <div class="card-item large-card">
+        <div class="card-content large">
+          <div id="clock"></div>
+          <div id="date"></div>
         </div>
+      </div>
 
-    <!-- Muuri library -->
-    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
-    <!-- Config file -->
-    <script src="config/config.js"></script>
-    <!-- Main script -->
-    <script src="src/js/script.js"></script>
-    <!-- Load once per page (near end of <body>) -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://apis.google.com/js/api.js" async defer></script>
-    <!-- Widget code -->
-    <script src="widgets/todaysEvents.js"></script>
+      <!-- Weather Card -->
+      <div class="card-item">
+        <div class="card-content">
+          <h2 id="weather-location"></h2>
+          <div id="weather">
+            <div class="weather-main">
+              <span class="temperature">--°</span>
+              <span class="condition">Loading...</span>
+            </div>
+            <div class="weather-details">
+              <span>High: --° Low: --°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today's Events Card -->
+      <div class="card-item">
+        <div class="card-content">
+          <h2>Today's Events</h2>
+          <div id="calendar">
+            <p class="placeholder">No events scheduled</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Calendar Card -->
+      <div class="card-item large-card calendar-card">
+        <div class="card-content">
+            <div class="drag-handle" title="Drag"></div>
+            <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FPhoenix&showPrint=0&showTitle=0&showTz=0&src=YW5kcmV3LnNldG8udXNAZ21haWwuY29t&src=ZTdhNTVlZDBmZDM4MGU4Mzc1YjllNWU0YWVhYjRmZmVhMzk0MzgzMmUzM2U4MzJmNmQ5MDNmM2UwYjBlNWViN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039be5&color=%23009688&color=%23009688"
+            allowfullscreen
+            loading="lazy">
+            </iframe>
+        </div>
+        </div>
+  </div>
+
+  <!-- Muuri library -->
+  <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
+
+  <!-- Config file -->
+  <script src="config/config.js"></script>
+
+  <!-- Main script -->
+  <script src="src/js/script.js"></script>
+
+  <!-- Optional: Refresh Muuri layout after calendar loads -->
+  <script>
+    window.addEventListener("load", () => {
+      const cal = document.querySelector(".calendar-card iframe");
+      cal?.addEventListener("load", () => {
+        if (window.grid?.refreshItems) window.grid.refreshItems().layout();
+      });
+    });
+  </script>
 </body>
 </html>

@@ -20,10 +20,9 @@ body {
 }
 
 .dashboard {
-  background: black;
+  background: white;
   border-radius: 40px;
   padding: 30px;
-  /* max-width: 1400px;  */
   width: 100%;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
@@ -52,7 +51,7 @@ header .subtitle {
   position: absolute;
   margin: 10px;
   z-index: 1;
-  width: calc(25% - 20px);  /* Default: 1/4 width (1 column) */
+  width: calc(25% - 20px);
 }
 
 /* Large card - spans 2 columns */
@@ -169,9 +168,9 @@ header .subtitle {
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .card-item {
-    width: calc(33.33% - 20px);  /* 3 columns on medium screens */
+    width: calc(33.33% - 20px);
   }
-  
+
   .card-item.large-card {
     width: calc(66.66% - 20px);
   }
@@ -179,9 +178,9 @@ header .subtitle {
 
 @media (max-width: 900px) {
   .card-item {
-    width: calc(50% - 20px);  /* 2 columns on small screens */
+    width: calc(50% - 20px);
   }
-  
+
   .card-item.large-card {
     width: calc(100% - 20px);
   }
@@ -189,6 +188,57 @@ header .subtitle {
 
 @media (max-width: 600px) {
   .card-item {
-    width: calc(100% - 20px);  /* 1 column on mobile */
+    width: calc(100% - 20px);
   }
+}
+
+/* Calendar Card Styling */
+.calendar-card {
+  grid-column: span 2; /* ensures it behaves like a large card in layout */
+}
+
+.calendar-card .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+
+  /* Make the calendar fit nicely */
+  min-height: 450px;       /* adjust this to control visible height */
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.calendar-card iframe {
+  flex: 1;                 /* fills remaining height */
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.card-content { position: relative; }
+
+.drag-handle{
+  position:absolute; top:10px; left:50%; transform:translateX(-50%);
+  width:150px; height:18px; border-radius:999px;
+  background:rgba(0,0,0,.45);
+  cursor:grab; z-index:3;
+  touch-action:none;
+  -webkit-user-select:none; user-select:none;
+}
+.drag-handle:active{ cursor:grabbing; }
+
+/* disable iframe immediately when arming OR dragging */
+.calendar-card.arming iframe,
+.calendar-card.is-dragging iframe{
+  pointer-events:none !important;
+}
+
+@media (max-width: 900px) {
+  .calendar-card .card-content { min-height: 500px; }
+}
+@media (max-width: 600px) {
+  .calendar-card .card-content { min-height: 420px; }
 }
